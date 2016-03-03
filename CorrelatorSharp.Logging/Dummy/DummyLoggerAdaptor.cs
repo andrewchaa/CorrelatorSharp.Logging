@@ -4,14 +4,12 @@ namespace CorrelatorSharp.Logging.Dummy
 {
     internal class DummyLoggerAdaptor : ILogger
     {
-        public readonly static DummyLoggerAdaptor Instance = new DummyLoggerAdaptor();
-
-        public string Name {
-            get {
-                return "DummyLogger";
-            }
+        public DummyLoggerAdaptor(string name)
+        {
+            Name = name;
         }
-
+        
+        public string Name { get; private set; }
         public bool IsTraceEnabled {
             get { return true; }
         }

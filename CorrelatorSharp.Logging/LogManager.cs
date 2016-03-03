@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace CorrelatorSharp.Logging
 {
@@ -6,13 +7,13 @@ namespace CorrelatorSharp.Logging
     {
         public static ILogger GetCurrentClassLogger()
         {
-            return LoggingConfiguration.LogManager.GetCurrentClassLogger();
+            var frame = new StackFrame(1, false);
+            return GetLogger(frame.GetMethod().DeclaringType.FullName);
         }
 
         public static ILogger GetLogger(string name)
         {
             return LoggingConfiguration.LogManager.GetLogger(name);
         }
-
     }
 }

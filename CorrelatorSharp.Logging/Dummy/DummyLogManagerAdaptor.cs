@@ -9,12 +9,12 @@ namespace CorrelatorSharp.Logging.Dummy
 
         public ILogger GetCurrentClassLogger()
         {
-            return DummyLoggerAdaptor.Instance;
+            return new DummyLoggerAdaptor("DummyLogger");
         }
 
         public ILogger GetLogger(string name)
         {
-            return DummyLoggerAdaptor.Instance;
+            return new DummyLoggerAdaptor(name);
         }
     }
 }
